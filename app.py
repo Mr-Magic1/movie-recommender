@@ -12,12 +12,26 @@ with open("new_movies.pkl", "rb") as f:
 with open("movie_embeddings.pkl", "rb") as f:
     movie_embeddings = pickle.load(f)
 
-# Load model from local directory
-model = SentenceTransformer("./models/all-MiniLM-L6-v2")
+# Lazy loading
+model = None
+
+def get_model():
+    global model
+
+    if model is None:
+        print("Loading SentenceTransformer model...")
+        model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    return model
 
 
 def recommend(query, top_n=10):
-    query_embedding = model.encode([query])
+    model = get_model()
+
+    query_embedding = model.encode(
+        [query],
+        convert_to_numpy=True
+    )
 
     similarity = cosine_similarity(
         query_embedding,
@@ -64,6 +78,9 @@ def home():
     )
 
 
-# For local development
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=False
+    )
