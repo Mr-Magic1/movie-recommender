@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Environment variables
+.env
+
+# Model cache (if downloading automatically)
+huggingface/
+.cache/
+sentence_transformers/
+
+# Flask
+instance/
+.flaskenv
+
+# Optional: ignore large model files
+# Uncomment if you don't want to upload the model
+# models/
+
+# Optional: ignore large data files
+# *.pkl
