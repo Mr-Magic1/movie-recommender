@@ -1,12 +1,7 @@
-# 1. Force pip to fetch the lightweight CPU version of PyTorch
 --find-links https://download.pytorch.org/whl/cpu
-torch==2.12.1+cpu
-
-# 2. Base Web Server Requirements
+torch==2.12.1
 flask==3.1.0
 gunicorn==23.0.0
-
-# 3. Data Science & Machine Learning (pinned)
 pandas==2.2.3
 scikit-learn==1.5.2
 sentence-transformers==3.0.1
